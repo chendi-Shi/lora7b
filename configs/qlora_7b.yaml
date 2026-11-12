@@ -1,0 +1,40 @@
+model:
+  name: Qwen/Qwen2.5-7B-Instruct
+  load_in_4bit: true
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_compute_dtype: bfloat16
+  bnb_4bit_use_double_quant: true
+  attn_implementation: sdpa        # 装了 flash-attn 再改 flash_attention_2
+  trust_remote_code: true
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+train:
+  output_dir: outputs/qwen2.5-7b-nl2sql
+  epochs: 3.0
+  max_steps: -1
+  per_device_batch_size: 1
+  grad_accum: 16
+  lr: 2.0e-4
+  lr_scheduler: cosine
+  warmup_ratio: 0.1
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  logging_steps: 10
+  save_steps: 200
+  save_total_limit: 2
+  bf16: true
+  gradient_checkpointing: true
+  optim: paged_adamw_8bit
+  seed: 42
+  report_to: []
+
+data:
+  train_file: data/demo/train.jsonl
+  dev_file: data/demo/dev.jsonl
+  max_len: 2048            # 4090 24G: 2048 稳，3072 也行；4096 需 double_quant
+  include_samples: true

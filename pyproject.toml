@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nl2sql-lora"
+version = "0.1.0"
+description = "QLoRA fine-tuning of Qwen for NL2SQL, with execution-accuracy evaluation on SQLite"
+requires-python = ">=3.9"
+dependencies = [
+  "transformers>=4.45",
+  "peft>=0.13",
+  "accelerate>=0.34",
+  "bitsandbytes>=0.43; platform_system != 'Darwin'",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+flash = ["flash-attn>=2.6"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

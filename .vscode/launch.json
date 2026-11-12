@@ -1,0 +1,46 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "train: dry-run (数据管线)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "nl2sql.train",
+      "args": ["--config", "configs/qlora_7b.yaml", "--dry-run"],
+      "cwd": "${workspaceFolder}",
+      "env": { "PYTHONPATH": "${workspaceFolder}/src" },
+      "justMyCode": true
+    },
+    {
+      "name": "train: 30 步冒烟",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "nl2sql.train",
+      "args": ["--config", "configs/qlora_7b.yaml", "--max-steps", "30",
+               "--output-dir", "outputs/smoke"],
+      "cwd": "${workspaceFolder}",
+      "env": { "PYTHONPATH": "${workspaceFolder}/src" },
+      "justMyCode": true
+    },
+    {
+      "name": "eval: 单文件评测",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "nl2sql.evaluate",
+      "args": ["--pred", "outputs/pred_lora.jsonl", "--out-dir", "outputs/report_lora"],
+      "cwd": "${workspaceFolder}",
+      "env": { "PYTHONPATH": "${workspaceFolder}/src" },
+      "justMyCode": true
+    },
+    {
+      "name": "prepare: demo 数据",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/01_prepare_data.py",
+      "args": ["--source", "demo"],
+      "cwd": "${workspaceFolder}",
+      "env": { "PYTHONPATH": "${workspaceFolder}/src" },
+      "justMyCode": true
+    }
+  ]
+}

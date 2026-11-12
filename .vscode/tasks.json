@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "1. 环境自检",
+      "type": "shell",
+      "command": "python scripts/00_check_env.py",
+      "options": { "env": { "PYTHONPATH": "${workspaceFolder}/src" } },
+      "problemMatcher": []
+    },
+    {
+      "label": "2. 生成 demo 数据",
+      "type": "shell",
+      "command": "python scripts/01_prepare_data.py --source demo",
+      "options": { "env": { "PYTHONPATH": "${workspaceFolder}/src" } },
+      "problemMatcher": []
+    },
+    {
+      "label": "3. 冒烟训练 (30 步)",
+      "type": "shell",
+      "command": "python -m nl2sql.train --config configs/qlora_7b.yaml --max-steps 30 --output-dir outputs/smoke",
+      "options": { "env": { "PYTHONPATH": "${workspaceFolder}/src" } },
+      "problemMatcher": []
+    },
+    {
+      "label": "4. 正式训练",
+      "type": "shell",
+      "command": "python -m nl2sql.train --config configs/qlora_7b.yaml --output-dir outputs/qwen2.5-7b-nl2sql",
+      "options": { "env": { "PYTHONPATH": "${workspaceFolder}/src" } },
+      "problemMatcher": []
+    },
+    {
+      "label": "5. 基座 baseline 推理+评测",
+      "type": "shell",
+      "command": "python -m nl2sql.infer --config configs/qlora_7b.yaml --test-file data/demo/test.jsonl --output outputs/pred_base.jsonl --limit 40 && python -m nl2sql.evaluate --pred outputs/pred_base.jsonl --out-dir outputs/report_base --title '基座模型（未微调）'",
+      "options": { "env": { "PYTHONPATH": "${workspaceFolder}/src" } },
+      "problemMatcher": []
+    },
+    {
+      "label": "6. LoRA 推理+评测",
+      "type": "shell",
+      "command": "python -m nl2sql.infer --config configs/qlora_7b.yaml --test-file data/demo/test.jsonl --adapter outputs/qwen2.5-7b-nl2sql --output outputs/pred_lora.jsonl --limit 40 && python -m nl2sql.evaluate --pred outputs/pred_lora.jsonl --out-dir outputs/report_lora --title 'Qwen2.5-7B + QLoRA'",
+      "options": { "env": { "PYTHONPATH": "${workspaceFolder}/src" } },
+      "problemMatcher": []
+    },
+    {
+      "label": "7. 跑测试",
+      "type": "shell",
+      "command": "python -m pytest -q",
+      "options": { "env": { "PYTHONPATH": "${workspaceFolder}/src" } },
+      "problemMatcher": []
+    }
+  ]
+}

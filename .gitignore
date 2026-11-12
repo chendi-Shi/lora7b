@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.hf-cache/
+outputs/
+data/spider/
+data/spider_proc/
+*.sqlite
+!data/demo/*.sqlite
+.pytest_cache/
+.ipynb_checkpoints/
+*.log
+wandb/
+runs/
+.DS_Store

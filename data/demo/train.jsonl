@@ -1,0 +1,150 @@
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "北京 客户贡献的订单总金额", "sql": "SELECT SUM(o.amount) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '北京'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 shipped 的订单总金额", "sql": "SELECT SUM(amount) FROM orders WHERE status = 'shipped'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "成都 有多少个 VIP 客户", "sql": "SELECT COUNT(*) FROM customers WHERE city = '成都' AND vip = 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 paid 的订单总金额", "sql": "SELECT SUM(amount) FROM orders WHERE status = 'paid'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "销量最高的商品标题", "sql": "SELECT p.title FROM orders o JOIN products p ON o.product_id = p.product_id GROUP BY p.product_id ORDER BY SUM(o.quantity) DESC LIMIT 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 refunded 的订单数量", "sql": "SELECT COUNT(*) FROM orders WHERE status = 'refunded'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "列出城市为 北京 的客户姓名", "sql": "SELECT name FROM customers WHERE city = '北京'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "来自 深圳 的客户下了多少订单", "sql": "SELECT COUNT(*) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '深圳'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个状态的订单里包含 beauty 类商品的订单数是多少，按状态分组", "sql": "SELECT o.status, COUNT(*) FROM orders o JOIN products p ON o.product_id = p.product_id WHERE p.category = 'beauty' GROUP BY o.status"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "beauty 类目商品的平均价格", "sql": "SELECT AVG(price) FROM products WHERE category = 'beauty'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个状态的订单里包含 electronics 类商品的订单数是多少，按状态分组", "sql": "SELECT o.status, COUNT(*) FROM orders o JOIN products p ON o.product_id = p.product_id WHERE p.category = 'electronics' GROUP BY o.status"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "列出城市为 成都 的客户姓名", "sql": "SELECT name FROM customers WHERE city = '成都'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "列出城市为 杭州 的客户姓名", "sql": "SELECT name FROM customers WHERE city = '杭州'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "home 类目下最贵的商品标题", "sql": "SELECT title FROM products WHERE category = 'home' ORDER BY price DESC LIMIT 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "2024 年 3 月下单的订单号", "sql": "SELECT order_id FROM orders WHERE order_date LIKE '2024-03%'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "上海 客户贡献的订单总金额", "sql": "SELECT SUM(o.amount) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '上海'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "sports 类目商品的平均价格", "sql": "SELECT AVG(price) FROM products WHERE category = 'sports'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个状态的订单里包含 books 类商品的订单数是多少，按状态分组", "sql": "SELECT o.status, COUNT(*) FROM orders o JOIN products p ON o.product_id = p.product_id WHERE p.category = 'books' GROUP BY o.status"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "按城市统计客户数量，降序", "sql": "SELECT city, COUNT(*) FROM customers GROUP BY city ORDER BY 2 DESC"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "来自 杭州 的客户下了多少订单", "sql": "SELECT COUNT(*) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '杭州'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "home 类目商品的平均价格", "sql": "SELECT AVG(price) FROM products WHERE category = 'home'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "库存小于 50 的商品有多少", "sql": "SELECT COUNT(*) FROM products WHERE stock < 50"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个状态的订单里包含 home 类商品的订单数是多少，按状态分组", "sql": "SELECT o.status, COUNT(*) FROM orders o JOIN products p ON o.product_id = p.product_id WHERE p.category = 'home' GROUP BY o.status"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "下单次数超过 10 次的客户姓名", "sql": "SELECT c.name FROM orders o JOIN customers c ON o.customer_id = c.customer_id GROUP BY o.customer_id HAVING COUNT(*) > 10"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "electronics 类目下最贵的商品标题", "sql": "SELECT title FROM products WHERE category = 'electronics' ORDER BY price DESC LIMIT 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "杭州 客户贡献的订单总金额", "sql": "SELECT SUM(o.amount) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '杭州'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 refunded 的订单总金额", "sql": "SELECT SUM(amount) FROM orders WHERE status = 'refunded'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "北京 有多少个 VIP 客户", "sql": "SELECT COUNT(*) FROM customers WHERE city = '北京' AND vip = 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "sports 类目下最贵的商品标题", "sql": "SELECT title FROM products WHERE category = 'sports' ORDER BY price DESC LIMIT 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "来自 北京 的客户下了多少订单", "sql": "SELECT COUNT(*) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '北京'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个类目的商品数量", "sql": "SELECT category, COUNT(*) FROM products GROUP BY category"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "books 类目下最贵的商品标题", "sql": "SELECT title FROM products WHERE category = 'books' ORDER BY price DESC LIMIT 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "深圳 有多少个 VIP 客户", "sql": "SELECT COUNT(*) FROM customers WHERE city = '深圳' AND vip = 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个状态的订单里包含 sports 类商品的订单数是多少，按状态分组", "sql": "SELECT o.status, COUNT(*) FROM orders o JOIN products p ON o.product_id = p.product_id WHERE p.category = 'sports' GROUP BY o.status"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "来自 成都 的客户下了多少订单", "sql": "SELECT COUNT(*) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '成都'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "广州 客户贡献的订单总金额", "sql": "SELECT SUM(o.amount) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '广州'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "没有下过任何订单的客户姓名", "sql": "SELECT name FROM customers WHERE customer_id NOT IN (SELECT customer_id FROM orders)"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "books 类目商品的平均价格", "sql": "SELECT AVG(price) FROM products WHERE category = 'books'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "价格在 100 到 500 之间的商品数量", "sql": "SELECT COUNT(*) FROM products WHERE price BETWEEN 100 AND 500"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 cancelled 的订单总金额", "sql": "SELECT SUM(amount) FROM orders WHERE status = 'cancelled'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 cancelled 的订单数量", "sql": "SELECT COUNT(*) FROM orders WHERE status = 'cancelled'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "广州 有多少个 VIP 客户", "sql": "SELECT COUNT(*) FROM customers WHERE city = '广州' AND vip = 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "列出城市为 上海 的客户姓名", "sql": "SELECT name FROM customers WHERE city = '上海'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "electronics 类目商品的平均价格", "sql": "SELECT AVG(price) FROM products WHERE category = 'electronics'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "来自 上海 的客户下了多少订单", "sql": "SELECT COUNT(*) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '上海'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "标题包含 smart 的商品名", "sql": "SELECT title FROM products WHERE title LIKE '%smart%'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "深圳 客户贡献的订单总金额", "sql": "SELECT SUM(o.amount) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '深圳'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 paid 的订单数量", "sql": "SELECT COUNT(*) FROM orders WHERE status = 'paid'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "列出城市为 深圳 的客户姓名", "sql": "SELECT name FROM customers WHERE city = '深圳'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "来自 广州 的客户下了多少订单", "sql": "SELECT COUNT(*) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '广州'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "列出城市为 广州 的客户姓名", "sql": "SELECT name FROM customers WHERE city = '广州'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "上海 有多少个 VIP 客户", "sql": "SELECT COUNT(*) FROM customers WHERE city = '上海' AND vip = 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "成都 客户贡献的订单总金额", "sql": "SELECT SUM(o.amount) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '成都'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 shipped 的订单数量", "sql": "SELECT COUNT(*) FROM orders WHERE status = 'shipped'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "杭州 有多少个 VIP 客户", "sql": "SELECT COUNT(*) FROM customers WHERE city = '杭州' AND vip = 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "beauty 类目下最贵的商品标题", "sql": "SELECT title FROM products WHERE category = 'beauty' ORDER BY price DESC LIMIT 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "北京 客户贡献的订单总金额", "sql": "SELECT SUM(o.amount) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '北京'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 shipped 的订单总金额", "sql": "SELECT SUM(amount) FROM orders WHERE status = 'shipped'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "成都 有多少个 VIP 客户", "sql": "SELECT COUNT(*) FROM customers WHERE city = '成都' AND vip = 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 paid 的订单总金额", "sql": "SELECT SUM(amount) FROM orders WHERE status = 'paid'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "销量最高的商品标题", "sql": "SELECT p.title FROM orders o JOIN products p ON o.product_id = p.product_id GROUP BY p.product_id ORDER BY SUM(o.quantity) DESC LIMIT 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 refunded 的订单数量", "sql": "SELECT COUNT(*) FROM orders WHERE status = 'refunded'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "列出城市为 北京 的客户姓名", "sql": "SELECT name FROM customers WHERE city = '北京'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "来自 深圳 的客户下了多少订单", "sql": "SELECT COUNT(*) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '深圳'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个状态的订单里包含 beauty 类商品的订单数是多少，按状态分组", "sql": "SELECT o.status, COUNT(*) FROM orders o JOIN products p ON o.product_id = p.product_id WHERE p.category = 'beauty' GROUP BY o.status"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "beauty 类目商品的平均价格", "sql": "SELECT AVG(price) FROM products WHERE category = 'beauty'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个状态的订单里包含 electronics 类商品的订单数是多少，按状态分组", "sql": "SELECT o.status, COUNT(*) FROM orders o JOIN products p ON o.product_id = p.product_id WHERE p.category = 'electronics' GROUP BY o.status"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "列出城市为 成都 的客户姓名", "sql": "SELECT name FROM customers WHERE city = '成都'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "列出城市为 杭州 的客户姓名", "sql": "SELECT name FROM customers WHERE city = '杭州'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "home 类目下最贵的商品标题", "sql": "SELECT title FROM products WHERE category = 'home' ORDER BY price DESC LIMIT 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "2024 年 3 月下单的订单号", "sql": "SELECT order_id FROM orders WHERE order_date LIKE '2024-03%'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "上海 客户贡献的订单总金额", "sql": "SELECT SUM(o.amount) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '上海'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "sports 类目商品的平均价格", "sql": "SELECT AVG(price) FROM products WHERE category = 'sports'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个状态的订单里包含 books 类商品的订单数是多少，按状态分组", "sql": "SELECT o.status, COUNT(*) FROM orders o JOIN products p ON o.product_id = p.product_id WHERE p.category = 'books' GROUP BY o.status"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "按城市统计客户数量，降序", "sql": "SELECT city, COUNT(*) FROM customers GROUP BY city ORDER BY 2 DESC"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "来自 杭州 的客户下了多少订单", "sql": "SELECT COUNT(*) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '杭州'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "home 类目商品的平均价格", "sql": "SELECT AVG(price) FROM products WHERE category = 'home'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "库存小于 50 的商品有多少", "sql": "SELECT COUNT(*) FROM products WHERE stock < 50"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个状态的订单里包含 home 类商品的订单数是多少，按状态分组", "sql": "SELECT o.status, COUNT(*) FROM orders o JOIN products p ON o.product_id = p.product_id WHERE p.category = 'home' GROUP BY o.status"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "下单次数超过 10 次的客户姓名", "sql": "SELECT c.name FROM orders o JOIN customers c ON o.customer_id = c.customer_id GROUP BY o.customer_id HAVING COUNT(*) > 10"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "electronics 类目下最贵的商品标题", "sql": "SELECT title FROM products WHERE category = 'electronics' ORDER BY price DESC LIMIT 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "杭州 客户贡献的订单总金额", "sql": "SELECT SUM(o.amount) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '杭州'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 refunded 的订单总金额", "sql": "SELECT SUM(amount) FROM orders WHERE status = 'refunded'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "北京 有多少个 VIP 客户", "sql": "SELECT COUNT(*) FROM customers WHERE city = '北京' AND vip = 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "sports 类目下最贵的商品标题", "sql": "SELECT title FROM products WHERE category = 'sports' ORDER BY price DESC LIMIT 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "来自 北京 的客户下了多少订单", "sql": "SELECT COUNT(*) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '北京'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个类目的商品数量", "sql": "SELECT category, COUNT(*) FROM products GROUP BY category"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "books 类目下最贵的商品标题", "sql": "SELECT title FROM products WHERE category = 'books' ORDER BY price DESC LIMIT 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "深圳 有多少个 VIP 客户", "sql": "SELECT COUNT(*) FROM customers WHERE city = '深圳' AND vip = 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个状态的订单里包含 sports 类商品的订单数是多少，按状态分组", "sql": "SELECT o.status, COUNT(*) FROM orders o JOIN products p ON o.product_id = p.product_id WHERE p.category = 'sports' GROUP BY o.status"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "来自 成都 的客户下了多少订单", "sql": "SELECT COUNT(*) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '成都'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "广州 客户贡献的订单总金额", "sql": "SELECT SUM(o.amount) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '广州'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "没有下过任何订单的客户姓名", "sql": "SELECT name FROM customers WHERE customer_id NOT IN (SELECT customer_id FROM orders)"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "books 类目商品的平均价格", "sql": "SELECT AVG(price) FROM products WHERE category = 'books'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "价格在 100 到 500 之间的商品数量", "sql": "SELECT COUNT(*) FROM products WHERE price BETWEEN 100 AND 500"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 cancelled 的订单总金额", "sql": "SELECT SUM(amount) FROM orders WHERE status = 'cancelled'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 cancelled 的订单数量", "sql": "SELECT COUNT(*) FROM orders WHERE status = 'cancelled'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "广州 有多少个 VIP 客户", "sql": "SELECT COUNT(*) FROM customers WHERE city = '广州' AND vip = 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "列出城市为 上海 的客户姓名", "sql": "SELECT name FROM customers WHERE city = '上海'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "electronics 类目商品的平均价格", "sql": "SELECT AVG(price) FROM products WHERE category = 'electronics'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "来自 上海 的客户下了多少订单", "sql": "SELECT COUNT(*) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '上海'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "标题包含 smart 的商品名", "sql": "SELECT title FROM products WHERE title LIKE '%smart%'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "深圳 客户贡献的订单总金额", "sql": "SELECT SUM(o.amount) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '深圳'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 paid 的订单数量", "sql": "SELECT COUNT(*) FROM orders WHERE status = 'paid'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "列出城市为 深圳 的客户姓名", "sql": "SELECT name FROM customers WHERE city = '深圳'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "来自 广州 的客户下了多少订单", "sql": "SELECT COUNT(*) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '广州'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "列出城市为 广州 的客户姓名", "sql": "SELECT name FROM customers WHERE city = '广州'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "上海 有多少个 VIP 客户", "sql": "SELECT COUNT(*) FROM customers WHERE city = '上海' AND vip = 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "成都 客户贡献的订单总金额", "sql": "SELECT SUM(o.amount) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '成都'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 shipped 的订单数量", "sql": "SELECT COUNT(*) FROM orders WHERE status = 'shipped'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "杭州 有多少个 VIP 客户", "sql": "SELECT COUNT(*) FROM customers WHERE city = '杭州' AND vip = 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "beauty 类目下最贵的商品标题", "sql": "SELECT title FROM products WHERE category = 'beauty' ORDER BY price DESC LIMIT 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "北京 客户贡献的订单总金额", "sql": "SELECT SUM(o.amount) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '北京'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 shipped 的订单总金额", "sql": "SELECT SUM(amount) FROM orders WHERE status = 'shipped'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "成都 有多少个 VIP 客户", "sql": "SELECT COUNT(*) FROM customers WHERE city = '成都' AND vip = 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 paid 的订单总金额", "sql": "SELECT SUM(amount) FROM orders WHERE status = 'paid'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "销量最高的商品标题", "sql": "SELECT p.title FROM orders o JOIN products p ON o.product_id = p.product_id GROUP BY p.product_id ORDER BY SUM(o.quantity) DESC LIMIT 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 refunded 的订单数量", "sql": "SELECT COUNT(*) FROM orders WHERE status = 'refunded'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "列出城市为 北京 的客户姓名", "sql": "SELECT name FROM customers WHERE city = '北京'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "来自 深圳 的客户下了多少订单", "sql": "SELECT COUNT(*) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '深圳'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个状态的订单里包含 beauty 类商品的订单数是多少，按状态分组", "sql": "SELECT o.status, COUNT(*) FROM orders o JOIN products p ON o.product_id = p.product_id WHERE p.category = 'beauty' GROUP BY o.status"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "beauty 类目商品的平均价格", "sql": "SELECT AVG(price) FROM products WHERE category = 'beauty'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个状态的订单里包含 electronics 类商品的订单数是多少，按状态分组", "sql": "SELECT o.status, COUNT(*) FROM orders o JOIN products p ON o.product_id = p.product_id WHERE p.category = 'electronics' GROUP BY o.status"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "列出城市为 成都 的客户姓名", "sql": "SELECT name FROM customers WHERE city = '成都'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "列出城市为 杭州 的客户姓名", "sql": "SELECT name FROM customers WHERE city = '杭州'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "home 类目下最贵的商品标题", "sql": "SELECT title FROM products WHERE category = 'home' ORDER BY price DESC LIMIT 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "2024 年 3 月下单的订单号", "sql": "SELECT order_id FROM orders WHERE order_date LIKE '2024-03%'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "上海 客户贡献的订单总金额", "sql": "SELECT SUM(o.amount) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '上海'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "sports 类目商品的平均价格", "sql": "SELECT AVG(price) FROM products WHERE category = 'sports'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个状态的订单里包含 books 类商品的订单数是多少，按状态分组", "sql": "SELECT o.status, COUNT(*) FROM orders o JOIN products p ON o.product_id = p.product_id WHERE p.category = 'books' GROUP BY o.status"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "按城市统计客户数量，降序", "sql": "SELECT city, COUNT(*) FROM customers GROUP BY city ORDER BY 2 DESC"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "来自 杭州 的客户下了多少订单", "sql": "SELECT COUNT(*) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '杭州'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "home 类目商品的平均价格", "sql": "SELECT AVG(price) FROM products WHERE category = 'home'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "库存小于 50 的商品有多少", "sql": "SELECT COUNT(*) FROM products WHERE stock < 50"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个状态的订单里包含 home 类商品的订单数是多少，按状态分组", "sql": "SELECT o.status, COUNT(*) FROM orders o JOIN products p ON o.product_id = p.product_id WHERE p.category = 'home' GROUP BY o.status"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "下单次数超过 10 次的客户姓名", "sql": "SELECT c.name FROM orders o JOIN customers c ON o.customer_id = c.customer_id GROUP BY o.customer_id HAVING COUNT(*) > 10"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "electronics 类目下最贵的商品标题", "sql": "SELECT title FROM products WHERE category = 'electronics' ORDER BY price DESC LIMIT 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "杭州 客户贡献的订单总金额", "sql": "SELECT SUM(o.amount) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '杭州'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "状态为 refunded 的订单总金额", "sql": "SELECT SUM(amount) FROM orders WHERE status = 'refunded'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "北京 有多少个 VIP 客户", "sql": "SELECT COUNT(*) FROM customers WHERE city = '北京' AND vip = 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "sports 类目下最贵的商品标题", "sql": "SELECT title FROM products WHERE category = 'sports' ORDER BY price DESC LIMIT 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "来自 北京 的客户下了多少订单", "sql": "SELECT COUNT(*) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '北京'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个类目的商品数量", "sql": "SELECT category, COUNT(*) FROM products GROUP BY category"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "books 类目下最贵的商品标题", "sql": "SELECT title FROM products WHERE category = 'books' ORDER BY price DESC LIMIT 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "深圳 有多少个 VIP 客户", "sql": "SELECT COUNT(*) FROM customers WHERE city = '深圳' AND vip = 1"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "每个状态的订单里包含 sports 类商品的订单数是多少，按状态分组", "sql": "SELECT o.status, COUNT(*) FROM orders o JOIN products p ON o.product_id = p.product_id WHERE p.category = 'sports' GROUP BY o.status"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "来自 成都 的客户下了多少订单", "sql": "SELECT COUNT(*) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '成都'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "广州 客户贡献的订单总金额", "sql": "SELECT SUM(o.amount) FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.city = '广州'"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "没有下过任何订单的客户姓名", "sql": "SELECT name FROM customers WHERE customer_id NOT IN (SELECT customer_id FROM orders)"}
+{"db_id": "shop", "db_path": "shop.sqlite", "question": "books 类目商品的平均价格", "sql": "SELECT AVG(price) FROM products WHERE category = 'books'"}
